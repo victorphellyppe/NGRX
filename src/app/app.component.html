@@ -1,0 +1,20 @@
+<div id="root">
+  <div class="container">
+    <div class="messages">
+      <div class="messages-scroller">
+        <ng-container *ngFor="let message of messages">
+          <div [ngClass]="message.author === username ? 'message me' : 'message'">
+            {{message.body}}
+          </div>
+        </ng-container>
+      </div>
+
+    </div>
+    <div class="chat-bar">
+      <div class="form">
+        <input #messageInput type="text" name="messageBody" placeholder="Type your message here" value=""
+          (keyup.enter)="send($event, messageInput)" />
+      </div>
+    </div>
+  </div>
+</div>
